@@ -1,0 +1,17 @@
+<h1 appLetra20>Inscripciones</h1>
+
+<button
+  mat-flat-button
+  color="primary"
+  class="mb-5"
+  (click)="addInscripcionDialog()"
+  >
+  <mat-icon>add</mat-icon>
+  Crear Inscripción
+</button>
+
+<app-inscripciones-tabla
+[dataSource]="(inscripciones$ | async) || []"
+(editarInscripcion)="OnEditarInscripcion($event)"
+(eliminarInscripcion)="OnEliminarInscripcion($event)"
+></app-inscripciones-tabla>

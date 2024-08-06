@@ -1,0 +1,24 @@
+<h1 appLetra20>ABM de Cursos</h1>
+<button
+  mat-flat-button
+  color="primary"
+  class="mb-5"
+
+  >
+  <mat-icon>add</mat-icon>
+  Crear Curso
+</button>
+
+
+<app-cursos-tabla
+[dataSource]="cursos  || []"
+
+>
+</app-cursos-tabla>
+
+
+
+<!-- 
+(editarCurso)="OnEditarCurso($event)"
+(eliminarCurso)="OnEliminarCurso($event)"
+  (click)="addCursoDialog()" -->

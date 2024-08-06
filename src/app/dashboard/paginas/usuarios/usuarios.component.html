@@ -1,0 +1,17 @@
+<h1 appLetra20>ABM de Usuarios</h1>
+<button
+  mat-flat-button
+  color="primary"
+  (click)="openUsuariosDialog()"
+  class="mb-5"
+  >
+  <mat-icon>add</mat-icon>
+  Crear Usuario
+</button>
+
+
+<app-usuarios-table
+[dataSource]="(usuarios$ | async) || [] "
+(eliminarUsuario)="OnEliminarUsuario($event)"
+(editarUsuario)="onEditarUsuario($event)"
+></app-usuarios-table>

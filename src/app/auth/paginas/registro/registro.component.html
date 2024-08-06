@@ -1,0 +1,60 @@
+<div class="container">
+  <h1>Formulario de registro</h1>
+
+  <form [formGroup]="registrateForm">
+    <div>
+      <mat-form-field class="w-100">
+        <mat-label>Nombre</mat-label>
+        <input formControlName="nombre" matInput type="text" />
+        <mat-error>
+          <ng-container *ngIf="registrateForm.get('nombre')?.hasError('nombre')">
+            Este campo es requerido
+          </ng-container>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-label>Apellido</mat-label>
+        <input formControlName="apellido" matInput type="text" />
+        <mat-error>
+          <ng-container *ngIf="registrateForm.get('apellido')?.hasError('apellido')">
+            Este campo es requerido
+          </ng-container>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-label>Email</mat-label>
+        <input formControlName="email" matInput type="email" />
+        <mat-error>
+          <ng-container *ngIf="registrateForm.get('email')?.hasError('required')">
+            Este campo es requerido
+          </ng-container>
+          <ng-container *ngIf="registrateForm.get('email')?.hasError('email')">
+            Formato email invalido.
+          </ng-container>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-label>Contraseña</mat-label>
+        <input formControlName="clave" matInput type="password" />
+        <mat-error>
+          <ng-container *ngIf="registrateForm.get('clave')?.hasError('clave')">
+            Este campo es requerido
+          </ng-container>
+  <!--         <ng-container *ngIf="loginForm.get('email')?.hasError('email')">
+            Formato email invalido.
+          </ng-container> -->
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+          <button (click)="registrarse()" mat-flat-button color="primary">
+            Registrate!
+          </button>
+
+  </form>
+  <div class="row justify-content-center mt-3">
+    <div class="col-md-6 text-center">
+      <a  (click)="login()" class="btn btn-link">Iniciar Sesión</a>
+    </div>
+  </div>
+</div>

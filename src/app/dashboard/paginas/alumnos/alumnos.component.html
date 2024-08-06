@@ -1,0 +1,18 @@
+<h1 appLetra20>ABM de Alumnos</h1>
+<button
+  mat-flat-button
+  color="primary"
+  class="mb-5"
+  (click)="addAlumnosDialog()"
+  >
+  <mat-icon>add</mat-icon>
+  Crear Alumno
+</button>
+
+
+<app-alumnos-tabla
+[dataSource]="(alumnos$ | async) || []"
+(editarAlumno)="OnEditarAlumno($event)"
+(eliminarAlumno)="OnEliminarAlumno($event)">
+</app-alumnos-tabla>
+

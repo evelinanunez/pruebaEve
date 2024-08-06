@@ -1,0 +1,69 @@
+<h1 mat-dialog-title>
+  {{Curso? 'Editar Curso' : 'Crear Curso'}}
+</h1>
+<div mat-dialog-content>
+
+  <form [formGroup]="cursosForm">
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Nombre Curso</mat-label>
+          <input formControlName="nombre" matInput/>
+           <mat-error>
+            <ng-container *ngIf="cursosForm.get('nombre')?.hasError('required')">
+              Este campo es requerido
+            </ng-container>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Descripcion</mat-label>
+          <input formControlName="descripcion" matInput/>
+           <mat-error>
+            <ng-container *ngIf="cursosForm.get('descripcion')?.hasError('required')">
+              Este campo es requerido
+            </ng-container>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Instructor</mat-label>
+          <input formControlName="instructor" matInput/>
+           <mat-error>
+            <ng-container *ngIf="cursosForm.get('instructor')?.hasError('required')">
+              Este campo es requerido
+            </ng-container>
+          </mat-error>
+        </mat-form-field>
+        </div>
+        <div class="col-6">
+          <mat-form-field class="w-100">
+            <mat-label>Categoria</mat-label>
+            <input formControlName="categoria" matInput/>
+             <mat-error>
+              <ng-container *ngIf="cursosForm.get('categoria')?.hasError('required')">
+                Este campo es requerido
+              </ng-container>
+            </mat-error>
+          </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Costo</mat-label>
+          <input formControlName="costo" matInput/>
+           <mat-error>
+            <ng-container *ngIf="cursosForm.get('costo')?.hasError('required')">
+              Este campo es requerido
+            </ng-container>
+          </mat-error>
+        </mat-form-field>
+    </div>
+    </div>
+  </form>
+</div>
+<div mat-dialog-action>
+  <button mat-dialog-close mat-button>Cancelar</button>
+  <button (click)="onSubmit()" mat-button>Guardar</button>
+</div>

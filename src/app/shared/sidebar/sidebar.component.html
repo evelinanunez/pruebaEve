@@ -1,0 +1,48 @@
+
+<div class="card" style="width: 10rem;">
+  <!-- <img src="..." class="card-img-top" alt="..."> -->
+  <div class="card-body">
+    <p class="card-title">{{ nombreCompleto$ | async }}</p>
+    <p class="card-text">{{ email$ | async }}</p>
+    <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+  </div>
+</div>
+<mat-nav-list>
+
+
+  <mat-list-item
+  *ngIf="(rol$ | async) === 'admin'"
+  routerLink ="usuarios"
+  routerLinkActive
+  #usuariosLink = "routerLinkActive"
+  [activated]="usuariosLink.isActive"
+  >
+    <a>Usuarios</a>
+  </mat-list-item>
+  <mat-list-item
+  routerLink="cursos"
+  routerLinkActive
+  #cursosLink = "routerLinkActive"
+  [activated]="cursosLink.isActive"
+  >
+    <a>Cursos</a>
+  </mat-list-item>
+  <mat-list-item
+  routerLink="alumnos"
+  routerLinkActive
+  #alumnosLink = "routerLinkActive"
+  [activated]="alumnosLink.isActive"
+  >
+    <a>Alumnos</a>
+  </mat-list-item>
+  <mat-list-item
+  routerLink="inscripciones"
+  routerLinkActive
+  #inscripcionesLink = "routerLinkActive"
+  [activated]="inscripcionesLink.isActive">
+    <a>Inscripciones</a>
+  </mat-list-item>
+  <mat-list-item (click)="logout()" >
+    <button type="button" class="btn btn-secondary">Cerrar sesión</button>
+  </mat-list-item>
+</mat-nav-list>

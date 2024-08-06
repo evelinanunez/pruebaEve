@@ -1,0 +1,78 @@
+ <h1 mat-dialog-title>
+  {{alumno? 'Editar Alumno' : 'Crear Alumno'}}
+</h1>
+<div mat-dialog-content>
+
+  <form [formGroup]="alumnosForm">
+    <div class="row">
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Nombre</mat-label>
+          <input formControlName="nombre" matInput/>
+           <mat-error>
+            <ng-container *ngIf="alumnosForm.get('nombre')?.hasError('required')">
+              Este campo es requerido
+            </ng-container>
+            <ng-container *ngIf="alumnosForm.get('nombre')?.hasError('minlength')">
+              Este campo debe contener como minimo 5 caracteres.
+            </ng-container>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="w-100">
+          <mat-label>Apellido</mat-label>
+          <input formControlName="apellido" matInput/>
+           <mat-error>
+            <ng-container *ngIf="alumnosForm.get('apellido')?.hasError('required')">
+              Este campo es requerido
+            </ng-container>
+            <ng-container *ngIf="alumnosForm.get('apellido')?.hasError('minlength')">
+              Este campo debe contener como minimo 5 caracteres.
+            </ng-container>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput/>
+          <mat-error>
+            <ng-container *ngIf="alumnosForm.get('email')?.hasError('required')">
+              Este campo es requerido
+            </ng-container>
+            <ng-container *ngIf="alumnosForm.get('email')?.hasError('email')">
+              El email no tiene un formato valido.
+            </ng-container>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Dni</mat-label>
+          <input formControlName="dni" matInput/>
+          <mat-error>
+            <ng-container *ngIf="alumnosForm.get('dni')?.hasError('required')">
+              Este campo es requerido
+            </ng-container>
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Telefono</mat-label>
+          <input formControlName="telefono" matInput/>
+          <mat-error>
+            <ng-container *ngIf="alumnosForm.get('telefono')?.hasError('required')">
+              Este campo es requerido
+            </ng-container>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</div>
+<div mat-dialog-action>
+  <button mat-dialog-close mat-button>Cancelar</button>
+  <button (click)="onSubmit()" mat-button>Guardar</button>
+</div>
